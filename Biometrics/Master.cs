@@ -1042,13 +1042,9 @@ namespace BioMetrixCore
 
         private void send_json_data_Click(object sender, EventArgs e)
         {
-
-
             DateTime dateTime = returnLastLog();
             var json = JsonConvert.SerializeObject(getFilteredData(dateTime), Formatting.Indented);
             MessageBox.Show(json);
-
-
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://digimahouse.dev/member/payroll/biometric");
             request.Method = "POST";

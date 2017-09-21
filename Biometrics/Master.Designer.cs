@@ -68,12 +68,12 @@
             this.btnSaveToDB = new System.Windows.Forms.Button();
             this.btnGetLast = new System.Windows.Forms.Button();
             this.btnCountRecords = new System.Windows.Forms.Button();
+            this.send_json_data = new System.Windows.Forms.Button();
             this.tmrReload = new System.Windows.Forms.Timer(this.components);
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.bgWorker = new System.ComponentModel.BackgroundWorker();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.lblDeviceInfo = new System.Windows.Forms.Label();
-            this.send_json_data = new System.Windows.Forms.Button();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecords)).BeginInit();
             this.panel1.SuspendLayout();
@@ -745,22 +745,6 @@
             this.btnCountRecords.UseVisualStyleBackColor = false;
             this.btnCountRecords.Click += new System.EventHandler(this.btnCountRecords_Click);
             // 
-            // bgWorker
-            // 
-            this.bgWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgWorker_DoWork);
-            // 
-            // lblDeviceInfo
-            // 
-            this.lblDeviceInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblDeviceInfo.BackColor = System.Drawing.Color.Transparent;
-            this.lblDeviceInfo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblDeviceInfo.Location = new System.Drawing.Point(11, 47);
-            this.lblDeviceInfo.Name = "lblDeviceInfo";
-            this.lblDeviceInfo.Size = new System.Drawing.Size(839, 19);
-            this.lblDeviceInfo.TabIndex = 892;
-            this.lblDeviceInfo.Text = "Device Info : --";
-            // 
             // send_json_data
             // 
             this.send_json_data.BackColor = System.Drawing.SystemColors.Control;
@@ -777,6 +761,22 @@
             this.send_json_data.Text = "Send Data";
             this.send_json_data.UseVisualStyleBackColor = false;
             this.send_json_data.Click += new System.EventHandler(this.send_json_data_Click);
+            // 
+            // bgWorker
+            // 
+            this.bgWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgWorker_DoWork);
+            // 
+            // lblDeviceInfo
+            // 
+            this.lblDeviceInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDeviceInfo.BackColor = System.Drawing.Color.Transparent;
+            this.lblDeviceInfo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblDeviceInfo.Location = new System.Drawing.Point(11, 47);
+            this.lblDeviceInfo.Name = "lblDeviceInfo";
+            this.lblDeviceInfo.Size = new System.Drawing.Size(839, 19);
+            this.lblDeviceInfo.TabIndex = 892;
+            this.lblDeviceInfo.Text = "Device Info : --";
             // 
             // Master
             // 
