@@ -63,26 +63,6 @@ namespace Biometrics.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap all_user {
-            get {
-                object obj = ResourceManager.GetObject("all-user", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap calendar_search {
-            get {
-                object obj = ResourceManager.GetObject("calendar-search", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap connect {
             get {
                 object obj = ResourceManager.GetObject("connect", resourceCulture);
@@ -106,16 +86,6 @@ namespace Biometrics.Properties {
         internal static System.Drawing.Bitmap headerbg {
             get {
                 object obj = ResourceManager.GetObject("headerbg", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap log_small {
-            get {
-                object obj = ResourceManager.GetObject("log-small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -49,6 +49,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup />
+  <PropertyGroup>
+    <StartupObject>BioMetrixCore.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="ExcelLibrary">
       <HintPath>E:\LENOVO\DOCUMENTS\Visual Studio 2010\Projects\frmMain\ExcelLibrary.dll</HintPath>
