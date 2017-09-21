@@ -73,7 +73,7 @@
             this.bgWorker = new System.ComponentModel.BackgroundWorker();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.lblDeviceInfo = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.send_json_data = new System.Windows.Forms.Button();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecords)).BeginInit();
             this.panel1.SuspendLayout();
@@ -304,7 +304,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btnSaveToDB);
             this.flowLayoutPanel1.Controls.Add(this.btnGetLast);
             this.flowLayoutPanel1.Controls.Add(this.btnCountRecords);
-            this.flowLayoutPanel1.Controls.Add(this.button1);
+            this.flowLayoutPanel1.Controls.Add(this.send_json_data);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -739,7 +739,7 @@
             this.btnCountRecords.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCountRecords.Location = new System.Drawing.Point(354, 120);
             this.btnCountRecords.Name = "btnCountRecords";
-            this.btnCountRecords.Size = new System.Drawing.Size(88, 48);
+            this.btnCountRecords.Size = new System.Drawing.Size(98, 48);
             this.btnCountRecords.TabIndex = 926;
             this.btnCountRecords.Text = "Show Logs to be Synced";
             this.btnCountRecords.UseVisualStyleBackColor = false;
@@ -761,22 +761,22 @@
             this.lblDeviceInfo.TabIndex = 892;
             this.lblDeviceInfo.Text = "Device Info : --";
             // 
-            // button1
+            // send_json_data
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Control;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSkyBlue;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(448, 120);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(88, 48);
-            this.button1.TabIndex = 927;
-            this.button1.Text = "Send";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.send_json_data.BackColor = System.Drawing.SystemColors.Control;
+            this.send_json_data.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.send_json_data.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.send_json_data.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.send_json_data.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSkyBlue;
+            this.send_json_data.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.send_json_data.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.send_json_data.Location = new System.Drawing.Point(458, 120);
+            this.send_json_data.Name = "send_json_data";
+            this.send_json_data.Size = new System.Drawing.Size(98, 48);
+            this.send_json_data.TabIndex = 927;
+            this.send_json_data.Text = "Send Data";
+            this.send_json_data.UseVisualStyleBackColor = false;
+            this.send_json_data.Click += new System.EventHandler(this.send_json_data_Click);
             // 
             // Master
             // 
@@ -856,7 +856,7 @@
         public System.Windows.Forms.DataGridView dgvRecords;
         private System.Windows.Forms.Button btnGetLast;
         private System.Windows.Forms.Button btnCountRecords;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button send_json_data;
     }
 }
 

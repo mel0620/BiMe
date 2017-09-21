@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Collections.Generic;
 using System.ComponentModel;
-using Microsoft.Office.Interop.Excel;
+//using Microsoft.Office.Interop.Excel;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using System.IO;
@@ -19,6 +19,8 @@ using Finisar.SQLite;
 using zkemkeeper;
 using System.Text;
 using Newtonsoft.Json;
+using System.Net;
+
 
 namespace BioMetrixCore
 {
@@ -127,31 +129,6 @@ namespace BioMetrixCore
             DisplayEmpty();
         }
 
-        public void sendData ()
-        {
-            try
-            {
-                ShowStatusBar(string.Empty, true);
-
-                ICollection<MachineInfo> lstMachineInfo = manipulator.GetTodayLogData(objZkeeper, int.Parse(tbxMachineNumber.Text.Trim()));
-
-                if (lstMachineInfo != null && lstMachineInfo.Count > 0)
-                {
-                    string json = JsonConvert.SerializeObject(lstMachineInfo, Formatting.Indented);
-
-                    MessageBox.Show("" + json);
-                }
-
-                else
-                    DisplayListOutput("No record/s found");
-            }
-
-            catch (Exception ex)
-            {
-                DisplayListOutput(ex.Message);
-            }
-        }
-
         public void getTodayRec()
         {
             try
@@ -208,7 +185,7 @@ namespace BioMetrixCore
             }
         }
 
-        public void getFilteredData (DateTime time)
+        public ICollection<MachineInfo> getFilteredData(DateTime time)
         {
             try
             {
@@ -225,13 +202,15 @@ namespace BioMetrixCore
                 else
                     ClearGrid();
                     DisplayListOutput("No record/s found");
-
+                    return lstMachineInfo;
             }
 
             catch (Exception ex)
             {
                 DisplayListOutput(ex.Message);
+               
             }
+            return null;
         }
 
         public void getTimeRec()
@@ -1061,9 +1040,24 @@ namespace BioMetrixCore
             getFilteredData(dateTime);
         }
 
-        private void button1_Click_1 ( object sender, EventArgs e )
+        private void send_json_data_Click(object sender, EventArgs e)
         {
-            sendData();
+
+
+            DateTime dateTime = returnLastLog();
+            var json = JsonConvert.SerializeObject(getFilteredData(dateTime), Formatting.Indented);
+            MessageBox.Show(json);
+
+
+
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://digimahouse.dev/member/payroll/biometric");
+            request.Method = "POST";
+            request.ContentType = "application/json";
+            request.ContentLength = json.Length;
+
+            StreamWriter sw = new StreamWriter(request.GetRequestStream());
+            sw.Write(json);
+            sw.Close();
         }
     }
 
