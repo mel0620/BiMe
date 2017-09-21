@@ -1048,16 +1048,14 @@ namespace BioMetrixCore
             var json = JsonConvert.SerializeObject(getFilteredData(dateTime), Formatting.Indented);
             MessageBox.Show(json);
 
+            //HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://digimahouse.dev/member/payroll/biometric");
+            //request.Method = "POST";
+           // request.ContentType = "application/json";
+            //request.ContentLength = json.Length;
 
-
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://digimahouse.dev/member/payroll/biometric");
-            request.Method = "POST";
-            request.ContentType = "application/json";
-            request.ContentLength = json.Length;
-
-            StreamWriter sw = new StreamWriter(request.GetRequestStream());
-            sw.Write(json);
-            sw.Close();
+            //StreamWriter sw = new StreamWriter(request.GetRequestStream());
+            //sw.Write(json);
+            //sw.Close();
         }
     }
 
