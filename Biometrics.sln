@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BioMetricsCore", "BioMetrixCore\BioMetricsCore.csproj", "{8289D5D0-D505-4B81-B6B9-D57D05771F71}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Biometrics", "BioMetrixCore\Biometrics.csproj", "{8289D5D0-D505-4B81-B6B9-D57D05771F71}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
