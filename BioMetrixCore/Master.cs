@@ -21,7 +21,6 @@ using System.Text;
 using Newtonsoft.Json;
 using System.Net;
 
-
 namespace BioMetrixCore
 {
     public partial class Master : Form
