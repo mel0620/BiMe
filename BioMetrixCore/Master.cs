@@ -1104,18 +1104,57 @@ namespace BioMetrixCore
             
 
             var json = JsonConvert.SerializeObject(getFilteredData(dateTime), Formatting.Indented);
-            MessageBox.Show(json);
 
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://digimahouse.dev/member/payroll/biometric");
-            request.Method = "POST";
-            request.ContentType = "application/json";
-            request.ContentLength = json.Length;
+            send_data(json);
 
 
-            StreamWriter sw = new StreamWriter(request.GetRequestStream());
-            sw.Write(json);
-            sw.Close();
+           // MessageBox.Show(config.appkey+" "+config.appsecret);
 
+           // HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://digimahouse.dev/member/payroll/biometric");
+           // request.Method = "POST";
+           // request.ContentType = "application/json";
+           // request.ContentLength = json.Length;
+
+
+            //StreamWriter sw = new StreamWriter(request.GetRequestStream());
+           // sw.Write(json);
+           // sw.Close();
+
+        }
+
+
+        public void send_data(string data_input)
+        {
+            try
+            {
+                var request = (HttpWebRequest)WebRequest.Create("http://digimahouse.dev/member/payroll/get_cutoff_data");
+                var postData = "appkey=" + config.appkey;
+                postData += "&appsecret=" + config.appsecret;
+                postData += "&branchid=" + config.branchid;
+                postData += "&data_input=" + data_input;
+            
+
+                var data = Encoding.ASCII.GetBytes(postData);
+
+                request.Method = "POST";
+                request.ContentType = "application/x-www-form-urlencoded";
+                request.ContentLength = data.Length;
+
+                using (var stream = request.GetRequestStream())
+                {
+                    stream.Write(data, 0, data.Length);
+                }
+
+                var response = (HttpWebResponse)request.GetResponse();
+
+                string responsestring = new StreamReader(response.GetResponseStream()).ReadToEnd();
+                MessageBox.Show(responsestring);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex+"");
+            }
         }
     }
 
