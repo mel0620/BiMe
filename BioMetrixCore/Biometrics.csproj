@@ -81,6 +81,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="config.cs" />
     <Compile Include="Controls\DataEmpty.cs">
       <SubType>UserControl</SubType>
     </Compile>

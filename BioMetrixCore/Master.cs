@@ -238,18 +238,27 @@ namespace BioMetrixCore
             {
                 ShowStatusBar(string.Empty, true);
              
-                ICollection<MachineInfo> lstMachineInfo = manipulator.GetFilteredData(objZkeeper, int.Parse(tbxMachineNumber.Text.Trim()), time);
-
-                if (lstMachineInfo != null && lstMachineInfo.Count > 0)
+                ICollection<MachineInfo> lstMachineInfo_all = manipulator.GetFilteredData(objZkeeper, int.Parse(tbxMachineNumber.Text.Trim()), time);
+                ICollection<MachineInfo> lstMachineInfo_employee = new List<MachineInfo>();
+                ICollection<MachineInfo> lstMachineInfo_last_in = new List<MachineInfo>();
+                ICollection<MachineInfo> lstMachineInfo_last_out = new List<MachineInfo>();
+                if (lstMachineInfo_all != null && lstMachineInfo_all.Count > 0)
                 {
-                    BindToGridView(lstMachineInfo);
-                    ShowStatusBar(lstMachineInfo.Count + " record/s found !!", true);
+                    foreach (var i in lstMachineInfo_all)
+                    {
+                        lstMachineInfo_employee.Add(i);
+                    }
+                    BindToGridView(lstMachineInfo_all);
+                    ShowStatusBar(lstMachineInfo_all.Count + " record/s found !!", true);
+                    return lstMachineInfo_all;
                 }
 
                 else
+                {
                     ClearGrid();
                     DisplayListOutput("No record/s found");
-                    return lstMachineInfo;
+                    return lstMachineInfo_all;
+                }
             }
 
             catch (Exception ex)
@@ -1087,18 +1096,21 @@ namespace BioMetrixCore
 
         private void send_json_data_Click(object sender, EventArgs e)
         {
-            DateTime dateTime = returnLastLog();
+            var dateTime = returnLastLog();
+            var syncData = getFilteredData(dateTime);
+            
             var json = JsonConvert.SerializeObject(getFilteredData(dateTime), Formatting.Indented);
             MessageBox.Show(json);
 
-            //HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://digimahouse.dev/member/payroll/biometric");
-            //request.Method = "POST";
-           // request.ContentType = "application/json";
-            //request.ContentLength = json.Length;
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://digimahouse.dev/member/payroll/biometric");
+            request.Method = "POST";
+            request.ContentType = "application/json";
+            request.ContentLength = json.Length;
 
-            //StreamWriter sw = new StreamWriter(request.GetRequestStream());
-            //sw.Write(json);
-            //sw.Close();
+
+            StreamWriter sw = new StreamWriter(request.GetRequestStream());
+            sw.Write(json);
+            sw.Close();
 
         }
     }
