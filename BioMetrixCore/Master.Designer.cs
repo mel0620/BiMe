@@ -756,7 +756,7 @@
             this.send_json_data.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.send_json_data.Location = new System.Drawing.Point(458, 120);
             this.send_json_data.Name = "send_json_data";
-            this.send_json_data.Size = new System.Drawing.Size(98, 48);
+            this.send_json_data.Size = new System.Drawing.Size(92, 48);
             this.send_json_data.TabIndex = 927;
             this.send_json_data.Text = "Send Data";
             this.send_json_data.UseVisualStyleBackColor = false;

@@ -121,9 +121,6 @@
   <data name="devicetime2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\devicetime2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="calendar-search" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\calendar-search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="connect" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\connect.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -133,14 +130,8 @@
   <data name="headerbg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\headerbg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="log-small" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\log-small.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="noFileIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\noFileIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="all-user" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\all-user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="restart2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\restart2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

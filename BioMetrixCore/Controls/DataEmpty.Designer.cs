@@ -34,7 +34,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::BioMetrixCore.Properties.Resources.noFileIcon;
+            this.BackgroundImage = global::Biometrics.Properties.Resources.noFileIcon;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.DoubleBuffered = true;
             this.Name = "DataEmpty";

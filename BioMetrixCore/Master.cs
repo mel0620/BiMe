@@ -21,7 +21,6 @@ using System.Text;
 using Newtonsoft.Json;
 using System.Net;
 
-
 namespace BioMetrixCore
 {
     public partial class Master : Form
@@ -62,6 +61,53 @@ namespace BioMetrixCore
             MessageBox.Show("Current time is : " + dt.ToString() + "", "Hello");
         }
 
+        //Background Worker Testing
+        private void autoSync ()
+        {
+            BackgroundWorker sync = new BackgroundWorker();
+            sync.DoWork += autoSync;
+            //sync.RunWorkerCompleted += done;  //Tell the user how the process went
+            sync.WorkerReportsProgress = true;
+            sync.WorkerSupportsCancellation = true; //Allow for the process to be cancelled
+            sync.RunWorkerAsync();
+        }
+
+        private void autoSync ( object sender, System.ComponentModel.DoWorkEventArgs e )
+        {
+            getTodayRec();
+
+            try
+            {
+                string constring = "datasource=localhost; database=biometrics; port=3306; username=root; password=";
+
+                using (MySqlConnection con = new MySqlConnection(constring))
+                {
+                    using (MySqlCommand cmd = new MySqlCommand("INSERT INTO sync_tbl(date_and_time_synced) VALUES(now())", con))
+                    {
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                    }
+
+                    var resultDia = DialogResult.None;
+                    resultDia = MessageBox.Show("Successfully synced!\nDo you want to show it ??", "Show Sync Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                    if (resultDia == DialogResult.Yes)
+                    {
+                        Log_Viewer dbviewer = new Log_Viewer();
+                        dbviewer.Show();
+                    }
+                    //MessageBox.Show("Records inserted.");
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message);
+            }
+        }
+        //End Background Worker Testing
+
         private void ToggleControls(bool value)
         {
             btnBeep.Enabled = value;
@@ -88,6 +134,7 @@ namespace BioMetrixCore
             tbxMachineNumber.Enabled = !value;
             tbxPort.Enabled = !value;
             tbxDeviceIP.Enabled = !value;
+            send_json_data.Enabled = value;
         }
 
         /*async static void PostRequest ( string url )
@@ -616,8 +663,6 @@ namespace BioMetrixCore
         private void bgWorker_DoWork ( object sender, DoWorkEventArgs e )
         {
             BackgroundWorker bgwork = new BackgroundWorker();
-            bgwork.DoWork += btnToday_Click;
-            bgwork.RunWorkerAsync();
         }
 
         private void picbtnSearch_Click ( object sender, EventArgs e )
@@ -1053,9 +1098,11 @@ namespace BioMetrixCore
         {
 
 
+
             var dateTime = returnLastLog();
             var syncData = getFilteredData(dateTime);
             
+
             var json = JsonConvert.SerializeObject(getFilteredData(dateTime), Formatting.Indented);
             MessageBox.Show(json);
 
@@ -1064,9 +1111,11 @@ namespace BioMetrixCore
             request.ContentType = "application/json";
             request.ContentLength = json.Length;
 
+
             StreamWriter sw = new StreamWriter(request.GetRequestStream());
             sw.Write(json);
             sw.Close();
+
         }
     }
 

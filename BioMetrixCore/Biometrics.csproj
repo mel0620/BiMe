@@ -7,8 +7,8 @@
     <ProjectGuid>{8289D5D0-D505-4B81-B6B9-D57D05771F71}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BioMetrixCore</RootNamespace>
-    <AssemblyName>BioMetrixCore</AssemblyName>
+    <RootNamespace>Biometrics</RootNamespace>
+    <AssemblyName>Biometrics</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -49,6 +49,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup />
+  <PropertyGroup>
+    <StartupObject>BioMetrixCore.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="ExcelLibrary">
       <HintPath>E:\LENOVO\DOCUMENTS\Visual Studio 2010\Projects\frmMain\ExcelLibrary.dll</HintPath>

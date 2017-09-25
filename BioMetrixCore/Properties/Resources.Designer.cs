@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BioMetrixCore.Properties {
+namespace Biometrics.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace BioMetrixCore.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BioMetrixCore.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Biometrics.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,26 +57,6 @@ namespace BioMetrixCore.Properties {
             }
             set {
                 resourceCulture = value;
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap all_user {
-            get {
-                object obj = ResourceManager.GetObject("all-user", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap calendar_search {
-            get {
-                object obj = ResourceManager.GetObject("calendar-search", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -106,16 +86,6 @@ namespace BioMetrixCore.Properties {
         internal static System.Drawing.Bitmap headerbg {
             get {
                 object obj = ResourceManager.GetObject("headerbg", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap log_small {
-            get {
-                object obj = ResourceManager.GetObject("log-small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
