@@ -36,7 +36,7 @@
             // 
             // progress
             // 
-            this.progress.Location = new System.Drawing.Point(9, 26);
+            this.progress.Location = new System.Drawing.Point(9, 9);
             this.progress.Name = "progress";
             this.progress.Size = new System.Drawing.Size(233, 29);
             this.progress.TabIndex = 0;
@@ -52,7 +52,7 @@
             // lblPercent
             // 
             this.lblPercent.AutoSize = true;
-            this.lblPercent.Location = new System.Drawing.Point(9, 64);
+            this.lblPercent.Location = new System.Drawing.Point(6, 47);
             this.lblPercent.Name = "lblPercent";
             this.lblPercent.Size = new System.Drawing.Size(82, 13);
             this.lblPercent.TabIndex = 1;
@@ -60,7 +60,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(248, 26);
+            this.btnCancel.Location = new System.Drawing.Point(248, 9);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(89, 29);
             this.btnCancel.TabIndex = 2;
@@ -72,7 +72,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(349, 96);
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ClientSize = new System.Drawing.Size(349, 73);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.lblPercent);
             this.Controls.Add(this.progress);

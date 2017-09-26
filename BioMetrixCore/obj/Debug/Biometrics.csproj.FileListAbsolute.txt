@@ -29,3 +29,4 @@ C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_
 C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\obj\Debug\Biometrics.exe
 C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\obj\Debug\Biometrics.pdb
 C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\obj\Debug\Biometrics.frmProgress.resources
+C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\obj\Debug\Biometrics.csprojResolveAssemblyReference.cache
