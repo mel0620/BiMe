@@ -20,6 +20,7 @@ using zkemkeeper;
 using System.Text;
 using Newtonsoft.Json;
 using System.Net;
+using Biometrics;
 
 namespace BioMetrixCore
 {
@@ -493,7 +494,8 @@ namespace BioMetrixCore
 
         private void btnBeep_Click(object sender, EventArgs e)
         {
-            objZkeeper.Beep(100);
+            //objZkeeper.Beep(100);
+            //ExecuteWithRetry("http://digimahouse.dev/member/payroll/biometrics/save_data", "Hello World!");
         }
 
         private void btnDownloadFingerPrint_Click(object sender, EventArgs e)
@@ -658,11 +660,6 @@ namespace BioMetrixCore
         private void btnPost_Click ( object sender, EventArgs e )
         {
             //PostRequest("https://posttestserver.com/post.php");
-        }
-
-        private void bgWorker_DoWork ( object sender, DoWorkEventArgs e )
-        {
-            BackgroundWorker bgwork = new BackgroundWorker();
         }
 
         private void picbtnSearch_Click ( object sender, EventArgs e )
@@ -1094,35 +1091,65 @@ namespace BioMetrixCore
             getFilteredData(dateTime);
         }
 
-        private void send_json_data_Click(object sender, EventArgs e)
+        public void sendTest ()
         {
             var dateTime = returnLastLog();
             var syncData = getFilteredData(dateTime);
 
             var json = JsonConvert.SerializeObject(syncData);//, Formatting.Indented
             send_data(json);
+        }
 
+        private void send_json_data_Click(object sender, EventArgs e)
+        {
+            /*frmProgress frmprog = new frmProgress();
+            frmprog.Show();
+            frmprog.start();*/
 
-           // MessageBox.Show(config.appkey+" "+config.appsecret);
+            var dateTime = returnLastLog();
+            var syncData = getFilteredData(dateTime);
 
-            //HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://digimahouse.dev/member/payroll/biometrics/save_data");
-            //request.Method = "POST";
-            //request.ContentType = "application/json";
-           // request.ContentLength = json.Length;
+            var json = JsonConvert.SerializeObject(syncData);//, Formatting.Indented
+            send_data(json);
 
+           //ExecuteWithRetry("http://www.requestb.in/xfxcva" /*valid url*/, "Hello World");
 
-          // StreamWriter sw = new StreamWriter(request.GetRequestStream());
-          // sw.Write(json);
-           //sw.Close();
+           /*MessageBox.Show(config.appkey+" "+config.appsecret);
+           
+           HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://digimahouse.dev/member/payroll/biometrics/save_data");
+           request.Method = "POST";
+           request.ContentType = "application/json";
+           request.ContentLength = json.Length;
 
+           StreamWriter sw = new StreamWriter(request.GetRequestStream());
+           sw.Write(json);
+           sw.Close();*/
 
         }
+
+        public HttpResponseMessage ExecuteWithRetry ( string url, string contentString )
+        {
+            HttpResponseMessage result = null;
+            bool success = false;
+
+            using (var client = new HttpClient())
+            {
+                do
+                {
+                    result = client.PostAsync(url, new StringContent(contentString)).Result;
+                    success = result.IsSuccessStatusCode;
+                }
+
+                while (!success);
+            }
+
+            return result;
+        } 
 
         public void send_data(string data_input)
         {
             try
             {
-
                 ASCIIEncoding encoding = new ASCIIEncoding();
 
                 var postData = "appkey=" + config.appkey;
@@ -1149,12 +1176,26 @@ namespace BioMetrixCore
                 MessageBox.Show(sr.ReadToEnd());
 
             }
+
             catch (Exception ex)
             {
-                
-                MessageBox.Show("failed to import data");
-                
+                MessageBox.Show("failed to import data" + ex.Message);
             }
+        }
+
+        private void bgWorker_DoWork ( object sender, DoWorkEventArgs e )
+        {
+
+        }
+
+        private void bgWorker_ProgressChanged ( object sender, ProgressChangedEventArgs e )
+        {
+
+        }
+
+        private void bgWorker_RunWorkerCompleted ( object sender, RunWorkerCompletedEventArgs e )
+        {
+
         }
     }
 

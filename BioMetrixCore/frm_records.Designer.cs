@@ -42,6 +42,7 @@
             this.dgvRec.Name = "dgvRec";
             this.dgvRec.Size = new System.Drawing.Size(484, 361);
             this.dgvRec.TabIndex = 0;
+            this.dgvRec.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRec_CellContentClick);
             // 
             // panel1
             // 

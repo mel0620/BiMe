@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Biometrics;
 
 namespace BioMetrixCore
 {
@@ -14,7 +15,7 @@ namespace BioMetrixCore
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Master());
-            //Application.Run(new frm_records());
+            //Application.Run(new frmProgress());
         }
     }
 }
