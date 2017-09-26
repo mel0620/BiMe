@@ -30,3 +30,4 @@ C:\Users\kimbriel\Desktop\biotmetric\ZKTeco_TX628\BioMetrixCore\obj\Debug\BioMet
 C:\Users\kimbriel\Desktop\biotmetric\ZKTeco_TX628\BioMetrixCore\obj\Debug\BioMetrixCore.Master.resources
 C:\Users\kimbriel\Desktop\biotmetric\ZKTeco_TX628\BioMetrixCore\obj\Debug\Biometrics.Properties.Resources.resources
 C:\Users\kimbriel\Desktop\biotmetric\ZKTeco_TX628\BioMetrixCore\obj\Debug\Biometrics.csproj.GenerateResource.Cache
+C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\bin\Debug\ExcelLibrary.dll

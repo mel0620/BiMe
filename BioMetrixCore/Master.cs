@@ -1098,19 +1098,23 @@ namespace BioMetrixCore
         {
             var dateTime = returnLastLog();
             var syncData = getFilteredData(dateTime);
-            
-            var json = JsonConvert.SerializeObject(getFilteredData(dateTime), Formatting.Indented);
 
+            var json = JsonConvert.SerializeObject(syncData);//, Formatting.Indented
             send_data(json);
 
-           // HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://digimahouse.dev/member/payroll/biometric");
-           // request.Method = "POST";
-           // request.ContentType = "application/json";
+
+           // MessageBox.Show(config.appkey+" "+config.appsecret);
+
+            //HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://digimahouse.dev/member/payroll/biometrics/save_data");
+            //request.Method = "POST";
+            //request.ContentType = "application/json";
            // request.ContentLength = json.Length;
 
-            //StreamWriter sw = new StreamWriter(request.GetRequestStream());
-           // sw.Write(json);
-           // sw.Close();
+
+          // StreamWriter sw = new StreamWriter(request.GetRequestStream());
+          // sw.Write(json);
+           //sw.Close();
+
 
         }
 
@@ -1118,32 +1122,38 @@ namespace BioMetrixCore
         {
             try
             {
-                var request = (HttpWebRequest)WebRequest.Create("http://digimahouse.dev/member/payroll/get_cutoff_data");
+
+                ASCIIEncoding encoding = new ASCIIEncoding();
+
                 var postData = "appkey=" + config.appkey;
                 postData += "&appsecret=" + config.appsecret;
                 postData += "&branchid=" + config.branchid;
                 postData += "&data_input=" + data_input;
-            
-                var data = Encoding.ASCII.GetBytes(postData);
 
+                byte[] data = encoding.GetBytes(postData);
+
+                WebRequest request = (HttpWebRequest)WebRequest.Create("http://digimahouse.dev/member/payroll/biometrics/save_data");
                 request.Method = "POST";
                 request.ContentType = "application/x-www-form-urlencoded";
                 request.ContentLength = data.Length;
 
-                using (var stream = request.GetRequestStream())
-                {
-                    stream.Write(data, 0, data.Length);
-                }
+                Stream stream = request.GetRequestStream();
+                stream.Write(data, 0, data.Length);
+                stream.Close();
 
-                var response = (HttpWebResponse)request.GetResponse();
+                WebResponse response = request.GetResponse();
+                stream = response.GetResponseStream();
 
-                string responsestring = new StreamReader(response.GetResponseStream()).ReadToEnd();
-                MessageBox.Show(responsestring);
+                StreamReader sr = new StreamReader(stream);
+
+                MessageBox.Show(sr.ReadToEnd());
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex+"");
+                
+                MessageBox.Show("failed to import data");
+                
             }
         }
     }
