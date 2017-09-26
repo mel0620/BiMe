@@ -1108,13 +1108,11 @@ namespace BioMetrixCore
            // request.ContentType = "application/json";
            // request.ContentLength = json.Length;
 
-
             //StreamWriter sw = new StreamWriter(request.GetRequestStream());
            // sw.Write(json);
            // sw.Close();
 
         }
-
 
         public void send_data(string data_input)
         {
@@ -1126,7 +1124,6 @@ namespace BioMetrixCore
                 postData += "&branchid=" + config.branchid;
                 postData += "&data_input=" + data_input;
             
-
                 var data = Encoding.ASCII.GetBytes(postData);
 
                 request.Method = "POST";
