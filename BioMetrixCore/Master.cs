@@ -635,13 +635,24 @@ namespace BioMetrixCore
 
         public void timerAuto ()
         {
-            Timer _tmr = new Timer();
+            DateTime dt = DateTime.Now;
+
+            String.Format(dt.ToLongTimeString());
+
+            if (dt.ToLongTimeString() == "3:37:00 PM")
+            {
+                MessageBox.Show("Success!");
+            }
+
+            //MessageBox.Show("The time is: " + dt.ToLongTimeString());
+
+            /*Timer _tmr = new Timer();
 
             _tmr.Interval = 10000;  // interval in millisecond
 
             _tmr.Tick += new EventHandler(tmrReload_Tick);
 
-            _tmr.Start();
+            _tmr.Start();*/
         }
 
         private void Master_Load ( object sender, EventArgs e )
@@ -657,7 +668,6 @@ namespace BioMetrixCore
             ToolTip1.SetToolTip(this.btnRestart, "Restart the device");
             ToolTip1.SetToolTip(this.btnOff, "Power off the device");
             ToolTip1.SetToolTip(this.btnPingDevice, "Ping the device");
-
         }
 
         private void picbtnGetAllLog_Click ( object sender, EventArgs e )
