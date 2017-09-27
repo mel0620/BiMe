@@ -1,20 +1,3 @@
-C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\bin\Debug\ExcelLibrary.dll
-C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\bin\Debug\Newtonsoft.Json.pdb
-C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\bin\Debug\Newtonsoft.Json.xml
-C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\obj\Debug\Biometrics.csprojResolveAssemblyReference.cache
-C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\obj\Debug\Interop.zkemkeeper.dll
-C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\obj\Debug\Biometrics.csproj.ResolveComReference.cache
-C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\obj\Debug\BioMetrixCore.DataEmpty.resources
-C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\obj\Debug\BioMetrixCore.frm_records.resources
-C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\obj\Debug\BioMetrixCore.Log_Viewer.resources
-C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\obj\Debug\BioMetrixCore.Master.resources
-C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\obj\Debug\Biometrics.csproj.GenerateResource.Cache
-C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\bin\Debug\Biometrics.exe.config
-C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\obj\Debug\Biometrics.Properties.Resources.resources
-C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\bin\Debug\Biometrics.exe
-C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\bin\Debug\Biometrics.pdb
-C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\obj\Debug\Biometrics.exe
-C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\obj\Debug\Biometrics.pdb
 C:\Users\kimbriel\Desktop\biotmetric\ZKTeco_TX628\BioMetrixCore\bin\Debug\Biometrics.exe.config
 C:\Users\kimbriel\Desktop\biotmetric\ZKTeco_TX628\BioMetrixCore\obj\Debug\Interop.zkemkeeper.dll
 C:\Users\kimbriel\Desktop\biotmetric\ZKTeco_TX628\BioMetrixCore\obj\Debug\Biometrics.csproj.ResolveComReference.cache
@@ -22,7 +5,6 @@ C:\Users\kimbriel\Desktop\biotmetric\ZKTeco_TX628\BioMetrixCore\obj\Debug\Biomet
 C:\Users\kimbriel\Desktop\biotmetric\ZKTeco_TX628\BioMetrixCore\obj\Debug\Biometrics.pdb
 C:\Users\kimbriel\Desktop\biotmetric\ZKTeco_TX628\BioMetrixCore\bin\Debug\Biometrics.exe
 C:\Users\kimbriel\Desktop\biotmetric\ZKTeco_TX628\BioMetrixCore\bin\Debug\Biometrics.pdb
-C:\Users\kimbriel\Desktop\biotmetric\ZKTeco_TX628\BioMetrixCore\bin\Debug\Newtonsoft.Json.pdb
 C:\Users\kimbriel\Desktop\biotmetric\ZKTeco_TX628\BioMetrixCore\bin\Debug\Newtonsoft.Json.xml
 C:\Users\kimbriel\Desktop\biotmetric\ZKTeco_TX628\BioMetrixCore\obj\Debug\Biometrics.csprojResolveAssemblyReference.cache
 C:\Users\kimbriel\Desktop\biotmetric\ZKTeco_TX628\BioMetrixCore\obj\Debug\BioMetrixCore.DataEmpty.resources
@@ -31,3 +13,20 @@ C:\Users\kimbriel\Desktop\biotmetric\ZKTeco_TX628\BioMetrixCore\obj\Debug\BioMet
 C:\Users\kimbriel\Desktop\biotmetric\ZKTeco_TX628\BioMetrixCore\obj\Debug\BioMetrixCore.Master.resources
 C:\Users\kimbriel\Desktop\biotmetric\ZKTeco_TX628\BioMetrixCore\obj\Debug\Biometrics.Properties.Resources.resources
 C:\Users\kimbriel\Desktop\biotmetric\ZKTeco_TX628\BioMetrixCore\obj\Debug\Biometrics.csproj.GenerateResource.Cache
+C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\bin\Debug\Biometrics.exe.config
+C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\bin\Debug\Biometrics.exe
+C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\bin\Debug\Biometrics.pdb
+C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\bin\Debug\ExcelLibrary.dll
+C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\obj\Debug\Interop.zkemkeeper.dll
+C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\obj\Debug\Biometrics.csproj.ResolveComReference.cache
+C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\obj\Debug\BioMetrixCore.DataEmpty.resources
+C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\obj\Debug\BioMetrixCore.frm_records.resources
+C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\obj\Debug\BioMetrixCore.Log_Viewer.resources
+C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\obj\Debug\BioMetrixCore.Master.resources
+C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\obj\Debug\Biometrics.Properties.Resources.resources
+C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\obj\Debug\Biometrics.csproj.GenerateResource.Cache
+C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\obj\Debug\Biometrics.exe
+C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\obj\Debug\Biometrics.pdb
+C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\obj\Debug\Biometrics.frmProgress.resources
+C:\Users\romme\OneDrive\Documents\Visual Studio 2012\Projects\Biometrics\ZKTeco_TX628\BioMetrixCore\obj\Debug\Biometrics.csprojResolveAssemblyReference.cache
+C:\Users\kimbriel\Desktop\biotmetric\ZKTeco_TX628\BioMetrixCore\obj\Debug\Biometrics.frmProgress.resources

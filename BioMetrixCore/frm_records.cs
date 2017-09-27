@@ -28,5 +28,10 @@ namespace BioMetrixCore
             getFilteredDataFromSyncedTable();
         }
 
+        private void dgvRec_CellContentClick ( object sender, DataGridViewCellEventArgs e )
+        {
+            
+        }
+
     }
 }

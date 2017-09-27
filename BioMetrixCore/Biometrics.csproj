@@ -88,6 +88,13 @@
     <Compile Include="Controls\DataEmpty.Designer.cs">
       <DependentUpon>DataEmpty.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProgress.Designer.cs">
+      <DependentUpon>frmProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Progress.cs" />
     <Compile Include="frm_records.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +130,9 @@
     <Compile Include="Utilities\ZkemClient.cs" />
     <EmbeddedResource Include="Controls\DataEmpty.resx">
       <DependentUpon>DataEmpty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProgress.resx">
+      <DependentUpon>frmProgress.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_records.resx">
       <DependentUpon>frm_records.cs</DependentUpon>
