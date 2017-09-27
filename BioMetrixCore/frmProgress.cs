@@ -40,8 +40,8 @@ namespace Biometrics
                 {
                     if (!backgroundWorker.CancellationPending)
                     {
-                        /*Master master = new Master();
-                        master.sendTest();*/
+                        Master master = new Master();
+                        master.sendTest();
 
                         backgroundWorker.ReportProgress(index++ * 100 / process, string.Format("Process data {0}", i));
                         Thread.Sleep(delay);
@@ -84,6 +84,11 @@ namespace Biometrics
                 _inputparameter.Process = 1200;
                 backgroundWorker.RunWorkerAsync(_inputparameter);
             }
+
+        }
+
+        private void frmProgress_Load ( object sender, EventArgs e )
+        {
 
         }
     }
