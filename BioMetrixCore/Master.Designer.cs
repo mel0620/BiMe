@@ -762,6 +762,10 @@
             this.send_json_data.UseVisualStyleBackColor = false;
             this.send_json_data.Click += new System.EventHandler(this.send_json_data_Click);
             // 
+            // tmrReload
+            // 
+            this.tmrReload.Tick += new System.EventHandler(this.tmrReload_Tick);
+            // 
             // bgWorker
             // 
             this.bgWorker.WorkerReportsProgress = true;

@@ -355,6 +355,9 @@ namespace BioMetrixCore
 
                 getTodayRec();
 
+                //Send Without Click
+                timerAuto();
+
                 if (IsDeviceConnected)
                 {
                     string deviceInfo = manipulator.FetchDeviceInfo(objZkeeper, int.Parse(tbxMachineNumber.Text.Trim()));
@@ -630,6 +633,17 @@ namespace BioMetrixCore
             }
         }
 
+        public void timerAuto ()
+        {
+            Timer _tmr = new Timer();
+
+            _tmr.Interval = 10000;  // interval in millisecond
+
+            _tmr.Tick += new EventHandler(tmrReload_Tick);
+
+            _tmr.Start();
+        }
+
         private void Master_Load ( object sender, EventArgs e )
         {
             //System.Diagnostics.Debug.WriteLine("printed");
@@ -643,6 +657,7 @@ namespace BioMetrixCore
             ToolTip1.SetToolTip(this.btnRestart, "Restart the device");
             ToolTip1.SetToolTip(this.btnOff, "Power off the device");
             ToolTip1.SetToolTip(this.btnPingDevice, "Ping the device");
+
         }
 
         private void picbtnGetAllLog_Click ( object sender, EventArgs e )
@@ -1037,16 +1052,17 @@ namespace BioMetrixCore
         {
             var dateTime = returnLastLog();
             var syncData = getFilteredData(dateTime);
-
             var json = JsonConvert.SerializeObject(syncData);//, Formatting.Indented
             send_data(json);
         }
 
         private void send_json_data_Click(object sender, EventArgs e)
         {
-            frmProgress frmprog = new frmProgress();
+            /*frmProgress frmprog = new frmProgress();
             frmprog.Show();
-            frmprog.start();
+            frmprog.start();*/
+
+            sendTest();
 
             /*var dateTime = returnLastLog();
             var syncData = getFilteredData(dateTime);
@@ -1127,7 +1143,7 @@ namespace BioMetrixCore
 
         private void bgWorker_DoWork ( object sender, DoWorkEventArgs e )
         {
-
+            sendTest();
         }
 
         private void bgWorker_ProgressChanged ( object sender, ProgressChangedEventArgs e )
@@ -1137,7 +1153,12 @@ namespace BioMetrixCore
 
         private void bgWorker_RunWorkerCompleted ( object sender, RunWorkerCompletedEventArgs e )
         {
+            MessageBox.Show("Process Completed!");
+        }
 
+        private void tmrReload_Tick ( object sender, EventArgs e )
+        {
+            bgWorker.RunWorkerAsync();
         }
     }
 
