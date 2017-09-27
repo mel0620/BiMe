@@ -1102,15 +1102,18 @@ namespace BioMetrixCore
 
         private void send_json_data_Click(object sender, EventArgs e)
         {
+            /*var dateTime = returnLastLog();
+            var syncData = getFilteredData(dateTime);
             frmProgress frmprog = new frmProgress();
             frmprog.Show();
-            frmprog.start();
+            frmprog.start();*/
 
-           /* var dateTime = returnLastLog();
+            var dateTime = returnLastLog();
             var syncData = getFilteredData(dateTime);
 
             var json = JsonConvert.SerializeObject(syncData);//, Formatting.Indented
-            send_data(json); */
+            send_data(json); 
+
 
            //ExecuteWithRetry("http://www.requestb.in/xfxcva" /*valid url*/, "Hello World");
 

@@ -42,8 +42,6 @@ namespace Biometrics
                 {
                     if (!backgroundWorker.CancellationPending)
                     {
-                        
-
                         backgroundWorker.ReportProgress(index++ * 100 / process, string.Format("Process data {0}", i));
                         Thread.Sleep(delay);
                         //Add code here
