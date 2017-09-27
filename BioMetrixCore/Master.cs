@@ -3,14 +3,9 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Collections.Generic;
 using System.ComponentModel;
-//using Microsoft.Office.Interop.Excel;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using System.IO;
-//using ExcelLibrary.CompoundDocumentFormat;
-//using ExcelLibrary.SpreadSheet;
-//using ExcelLibrary.BinaryDrawingFormat;
-//using ExcelLibrary.BinaryFileFormat;
 using System.Data;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -21,6 +16,11 @@ using System.Text;
 using Newtonsoft.Json;
 using System.Net;
 using Biometrics;
+//using Microsoft.Office.Interop.Excel;
+//using ExcelLibrary.CompoundDocumentFormat;
+//using ExcelLibrary.SpreadSheet;
+//using ExcelLibrary.BinaryDrawingFormat;
+//using ExcelLibrary.BinaryFileFormat;
 
 namespace BioMetrixCore
 {
@@ -61,53 +61,6 @@ namespace BioMetrixCore
 
             MessageBox.Show("Current time is : " + dt.ToString() + "", "Hello");
         }
-
-        //Background Worker Testing
-        private void autoSync ()
-        {
-            BackgroundWorker sync = new BackgroundWorker();
-            sync.DoWork += autoSync;
-            //sync.RunWorkerCompleted += done;  //Tell the user how the process went
-            sync.WorkerReportsProgress = true;
-            sync.WorkerSupportsCancellation = true; //Allow for the process to be cancelled
-            sync.RunWorkerAsync();
-        }
-
-        private void autoSync ( object sender, System.ComponentModel.DoWorkEventArgs e )
-        {
-            getTodayRec();
-
-            try
-            {
-                string constring = "datasource=localhost; database=biometrics; port=3306; username=root; password=";
-
-                using (MySqlConnection con = new MySqlConnection(constring))
-                {
-                    using (MySqlCommand cmd = new MySqlCommand("INSERT INTO sync_tbl(date_and_time_synced) VALUES(now())", con))
-                    {
-                        con.Open();
-                        cmd.ExecuteNonQuery();
-                        con.Close();
-                    }
-
-                    var resultDia = DialogResult.None;
-                    resultDia = MessageBox.Show("Successfully synced!\nDo you want to show it ??", "Show Sync Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                    if (resultDia == DialogResult.Yes)
-                    {
-                        Log_Viewer dbviewer = new Log_Viewer();
-                        dbviewer.Show();
-                    }
-                    //MessageBox.Show("Records inserted.");
-                }
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error " + ex.Message);
-            }
-        }
-        //End Background Worker Testing
 
         private void ToggleControls(bool value)
         {
@@ -487,15 +440,9 @@ namespace BioMetrixCore
 
         }
 
-        public void test ()
-        {
-            MessageBox.Show("Hello");
-        }
-
         private void btnBeep_Click(object sender, EventArgs e)
         {
             //objZkeeper.Beep(100);
-            //ExecuteWithRetry("http://digimahouse.dev/member/payroll/biometrics/save_data", "Hello World!");
         }
 
         private void btnDownloadFingerPrint_Click(object sender, EventArgs e)
@@ -556,11 +503,6 @@ namespace BioMetrixCore
         {
             ClearGrid();
             dgvRecords.Controls.Add(new DataEmpty());
-        }
-
-        public void LastInOut ()
-        {
-            MessageBox.Show("Hello");
         }
 
         private void pnlHeader_Paint(object sender, PaintEventArgs e)
@@ -1102,18 +1044,25 @@ namespace BioMetrixCore
 
         private void send_json_data_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             /*var dateTime = returnLastLog();
             var syncData = getFilteredData(dateTime);
+=======
+>>>>>>> 292a9d17a335cc37b569f79a3c7260e4ff0a9c74
             frmProgress frmprog = new frmProgress();
             frmprog.Show();
-            frmprog.start();*/
+            frmprog.start();
 
-            var dateTime = returnLastLog();
+            /*var dateTime = returnLastLog();
             var syncData = getFilteredData(dateTime);
 
             var json = JsonConvert.SerializeObject(syncData);//, Formatting.Indented
+<<<<<<< HEAD
             send_data(json); 
 
+=======
+            send_data(json);*/
+>>>>>>> 292a9d17a335cc37b569f79a3c7260e4ff0a9c74
 
            //ExecuteWithRetry("http://www.requestb.in/xfxcva" /*valid url*/, "Hello World");
 
@@ -1182,7 +1131,7 @@ namespace BioMetrixCore
 
             catch (Exception ex)
             {
-                MessageBox.Show("failed to import data" + ex.Message);
+                MessageBox.Show("Failed to import data\n" + ex.Message);
             }
         }
 

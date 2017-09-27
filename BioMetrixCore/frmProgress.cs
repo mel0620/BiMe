@@ -86,7 +86,8 @@ namespace Biometrics
 
         }
 
-        private void frmProgress_Load(object sender, EventArgs e)
+
+        private void frmProgress_Load ( object sender, EventArgs e )
         {
 
         }
