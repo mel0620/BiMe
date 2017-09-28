@@ -110,7 +110,7 @@ namespace BioMetrixCore
         {
             string connection = "datasource=localhost; database=biometrics; port=3306; username=root; password=";
             MySqlConnection mycon = new MySqlConnection(connection);
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM sync_view;", mycon);
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM sync_table_view;", mycon);
             ShowStatusBar(string.Empty, true);
 
             try

@@ -36,13 +36,12 @@ namespace Biometrics
 
             try
             {
+                Master master = new Master();
+                master.sendTest();
                 for (int i = 0; i < process; i++)
                 {
                     if (!backgroundWorker.CancellationPending)
                     {
-                        Master master = new Master();
-                        master.sendTest();
-
                         backgroundWorker.ReportProgress(index++ * 100 / process, string.Format("Process data {0}", i));
                         Thread.Sleep(delay);
                         //Add code here
@@ -86,6 +85,7 @@ namespace Biometrics
             }
 
         }
+
 
         private void frmProgress_Load ( object sender, EventArgs e )
         {

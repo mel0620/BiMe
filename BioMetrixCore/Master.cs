@@ -170,14 +170,6 @@ namespace BioMetrixCore
 
                 else
                     DisplayListOutput("No record/s found");
-
-                var resultDia = DialogResult.None;
-                resultDia = MessageBox.Show("Do you want to sync it online ??", "Sync Online", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (resultDia == DialogResult.Yes)
-                {
-                    MessageBox.Show("Not yet implemented!");
-                }
             }
 
             catch (Exception ex)
@@ -356,7 +348,7 @@ namespace BioMetrixCore
                 getTodayRec();
 
                 //Send Without Click
-                timerAuto();
+                //timerAuto();
 
                 if (IsDeviceConnected)
                 {
@@ -633,7 +625,7 @@ namespace BioMetrixCore
             }
         }
 
-        public void timerAuto ()
+        /*public void timerAuto ()
         {
             DateTime dt = DateTime.Now;
 
@@ -652,8 +644,9 @@ namespace BioMetrixCore
 
             _tmr.Tick += new EventHandler(tmrReload_Tick);
 
-            _tmr.Start();*/
-        }
+            _tmr.Start();
+
+        }*/
 
         private void Master_Load ( object sender, EventArgs e )
         {
@@ -897,7 +890,8 @@ namespace BioMetrixCore
 
                 using (MySqlConnection con = new MySqlConnection(constring))
                 {
-                    using (MySqlCommand cmd = new MySqlCommand("INSERT INTO sync_tbl(date_and_time_synced) VALUES(now())", con))
+                    using (MySqlCommand cmd = new MySqlCommand("INSERT INTO sync_table(last_synced, latest_synced) SELECT latest_synced, NOW() FROM sync_table ORDER BY sync_id DESC LIMIT 1", con))
+
                     {
                         con.Open();
                         cmd.ExecuteNonQuery();
@@ -1073,12 +1067,6 @@ namespace BioMetrixCore
             frmprog.start();*/
 
             sendTest();
-
-            /*var dateTime = returnLastLog();
-            var syncData = getFilteredData(dateTime);
-
-            var json = JsonConvert.SerializeObject(syncData);//, Formatting.Indented
-            send_data(json);*/
 
            //ExecuteWithRetry("http://www.requestb.in/xfxcva" /*valid url*/, "Hello World");
 

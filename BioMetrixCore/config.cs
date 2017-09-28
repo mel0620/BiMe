@@ -8,8 +8,8 @@ namespace BioMetrixCore
 {
     class config
     {
-        public static String appkey = "dwMlq"; // Modifiable
-        public static String appsecret = "454afdb9a7f257be00949fde46be6fce"; // Modifiable
+        public static String appkey = "deaVH"; // Modifiable
+        public static String appsecret = "837e53cae694f72bc5e1b202afa7e255"; // Modifiable
         public static String branchid = "1";
     }
 }
