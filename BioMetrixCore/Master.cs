@@ -171,13 +171,8 @@ namespace BioMetrixCore
                 else
                     DisplayListOutput("No record/s found");
 
-                var resultDia = DialogResult.None;
-                resultDia = MessageBox.Show("Do you want to sync it online ??", "Sync Online", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (resultDia == DialogResult.Yes)
-                {
-                    MessageBox.Show("Not yet implemented!");
-                }
+                
+         
             }
 
             catch (Exception ex)
