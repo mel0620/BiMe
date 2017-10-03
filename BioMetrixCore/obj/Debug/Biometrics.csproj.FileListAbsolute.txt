@@ -5,7 +5,6 @@ C:\Users\kimbriel\Desktop\biotmetric\ZKTeco_TX628\BioMetrixCore\obj\Debug\Biomet
 C:\Users\kimbriel\Desktop\biotmetric\ZKTeco_TX628\BioMetrixCore\obj\Debug\Biometrics.pdb
 C:\Users\kimbriel\Desktop\biotmetric\ZKTeco_TX628\BioMetrixCore\bin\Debug\Biometrics.exe
 C:\Users\kimbriel\Desktop\biotmetric\ZKTeco_TX628\BioMetrixCore\bin\Debug\Biometrics.pdb
-C:\Users\kimbriel\Desktop\biotmetric\ZKTeco_TX628\BioMetrixCore\bin\Debug\Newtonsoft.Json.xml
 C:\Users\kimbriel\Desktop\biotmetric\ZKTeco_TX628\BioMetrixCore\obj\Debug\Biometrics.csprojResolveAssemblyReference.cache
 C:\Users\kimbriel\Desktop\biotmetric\ZKTeco_TX628\BioMetrixCore\obj\Debug\BioMetrixCore.DataEmpty.resources
 C:\Users\kimbriel\Desktop\biotmetric\ZKTeco_TX628\BioMetrixCore\obj\Debug\BioMetrixCore.frm_records.resources

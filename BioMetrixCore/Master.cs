@@ -327,6 +327,7 @@ namespace BioMetrixCore
 
                 string ipAddress = tbxDeviceIP.Text.Trim();
                 string port = tbxPort.Text.Trim();
+                
                 if (ipAddress == string.Empty || port == string.Empty)
                     throw new Exception("The Device IP Address and Port is mandatory !!");
 
