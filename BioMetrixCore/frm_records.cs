@@ -19,13 +19,12 @@ namespace BioMetrixCore
 
         public void getFilteredDataFromSyncedTable ()
         {
-           // Master master = new Master();
-           // master.getFilteredData(dgvRec);
+           
         }
 
         private void frm_records_Load ( object sender, EventArgs e )
         {
-            getFilteredDataFromSyncedTable();
+            
         }
 
         private void dgvRec_CellContentClick ( object sender, DataGridViewCellEventArgs e )

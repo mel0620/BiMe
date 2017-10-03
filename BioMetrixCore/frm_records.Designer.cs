@@ -40,7 +40,7 @@
             this.dgvRec.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRec.Location = new System.Drawing.Point(0, 0);
             this.dgvRec.Name = "dgvRec";
-            this.dgvRec.Size = new System.Drawing.Size(484, 361);
+            this.dgvRec.Size = new System.Drawing.Size(662, 205);
             this.dgvRec.TabIndex = 0;
             this.dgvRec.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRec_CellContentClick);
             // 
@@ -50,14 +50,14 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(484, 361);
+            this.panel1.Size = new System.Drawing.Size(662, 205);
             this.panel1.TabIndex = 1;
             // 
             // frm_records
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 361);
+            this.ClientSize = new System.Drawing.Size(662, 205);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frm_records";
