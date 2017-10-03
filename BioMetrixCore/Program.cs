@@ -14,9 +14,9 @@ namespace BioMetrixCore
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Master());
+            Application.Run(new Master());
             //Application.Run(new frmProgress());
-            Application.Run(new Log_Viewer());
+            //Application.Run(new Log_Viewer());
         }
     }
 }

@@ -348,7 +348,7 @@ namespace BioMetrixCore
                 getTodayRec();
 
                 //Send Without Click
-                //timerAuto();
+                timerAuto();
 
                 if (IsDeviceConnected)
                 {
@@ -625,20 +625,20 @@ namespace BioMetrixCore
             }
         }
 
-        /*public void timerAuto ()
+        public void timerAuto ()
         {
-            DateTime dt = DateTime.Now;
+            /*DateTime dt = DateTime.Now;
 
             String.Format(dt.ToLongTimeString());
 
             if (dt.ToLongTimeString() == "3:37:00 PM")
             {
                 MessageBox.Show("Success!");
-            }
+            }*/
 
             //MessageBox.Show("The time is: " + dt.ToLongTimeString());
 
-            /*Timer _tmr = new Timer();
+            Timer _tmr = new Timer();
 
             _tmr.Interval = 10000;  // interval in millisecond
 
@@ -646,7 +646,7 @@ namespace BioMetrixCore
 
             _tmr.Start();
 
-        }*/
+        }
 
         private void Master_Load ( object sender, EventArgs e )
         {
@@ -1068,25 +1068,7 @@ namespace BioMetrixCore
 
         private void send_json_data_Click(object sender, EventArgs e)
         {
-            /*frmProgress frmprog = new frmProgress();
-            frmprog.Show();
-            frmprog.start();*/
-
             sendTest();
-
-           //ExecuteWithRetry("http://www.requestb.in/xfxcva" /*valid url*/, "Hello World");
-
-           /*MessageBox.Show(config.appkey+" "+config.appsecret);
-           
-           HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://digimahouse.dev/member/payroll/biometrics/save_data");
-           request.Method = "POST";
-           request.ContentType = "application/json";
-           request.ContentLength = json.Length;
-
-           StreamWriter sw = new StreamWriter(request.GetRequestStream());
-           sw.Write(json);
-           sw.Close();*/
-
         }
 
         public HttpResponseMessage ExecuteWithRetry ( string url, string contentString )
@@ -1162,7 +1144,12 @@ namespace BioMetrixCore
 
         private void tmrReload_Tick ( object sender, EventArgs e )
         {
-            bgWorker.RunWorkerAsync();
+            
+            if (DateTime.Now.Hour == 21 && DateTime.Now.Minute == 00)
+            {
+                bgWorker.RunWorkerAsync();
+            }
+            //
         }
     }
 
