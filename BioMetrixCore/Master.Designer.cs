@@ -829,7 +829,6 @@
         private System.Windows.Forms.Button btnPingDevice;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tbxMachineNumber;
         private System.Windows.Forms.Button btnBeep;
         private System.Windows.Forms.Panel pnlHeader;
         public System.Windows.Forms.Label lblHeader;
@@ -865,6 +864,7 @@
         private System.Windows.Forms.Button btnGetLast;
         private System.Windows.Forms.Button btnCountRecords;
         private System.Windows.Forms.Button send_json_data;
+        public System.Windows.Forms.TextBox tbxMachineNumber;
     }
 }
 

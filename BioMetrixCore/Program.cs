@@ -16,6 +16,7 @@ namespace BioMetrixCore
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Master());
             //Application.Run(new frmProgress());
+           // Application.Run(new Log_Viewer());
         }
     }
 }

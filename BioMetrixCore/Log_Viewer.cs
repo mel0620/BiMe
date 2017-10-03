@@ -13,6 +13,11 @@ namespace BioMetrixCore
 {
     public partial class Log_Viewer : Form
     {
+        DeviceManipulator manipulator = new DeviceManipulator();
+        Master master = new Master();
+
+        public ZkemClient objZkeeper;
+
         public Log_Viewer ()
         {
             InitializeComponent();
@@ -20,10 +25,56 @@ namespace BioMetrixCore
 
         DataTable table;
 
-        private void BindToGridView ()
+        public void BindToGridView1 ()
         {
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             UniversalStatic.ChangeGridProperties(dataGridView1);
+        }
+
+        public void BindToGridView (object list )
+        {
+            dgvSyncedData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            UniversalStatic.ChangeGridProperties(dgvSyncedData);
+        }
+
+        public ICollection<MachineInfo> GetSyncData ( DateTime dfrom )
+        {
+            string dtfrom = this.dataGridView1.CurrentRow.Cells[1].Value.ToString();
+
+            dfrom = DateTime.Parse(dtfrom);
+
+            try
+            {
+                ShowStatusBar(string.Empty, true);
+
+                ICollection<MachineInfo> lstMachineInfo_all = manipulator.GetSyncedData(objZkeeper, int.Parse(master.tbxMachineNumber.Text.Trim()), dfrom);
+                ICollection<MachineInfo> lstMachineInfo_employee = new List<MachineInfo>();
+
+                if (lstMachineInfo_all != null && lstMachineInfo_all.Count > 0)
+                {
+                    foreach (var i in lstMachineInfo_all)
+                    {
+                        lstMachineInfo_employee.Add(i);
+                    }
+
+                    BindToGridView(lstMachineInfo_all);
+                    ShowStatusBar(lstMachineInfo_all.Count + " record/s found !!", true);
+                    return lstMachineInfo_all;
+                }
+
+                else
+                {
+                    MessageBox.Show("No record/s found");
+                    return lstMachineInfo_all;
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error");
+
+            }
+            return null;
         }
 
         public void ShowStatusBar ( string message, bool type )
@@ -44,7 +95,7 @@ namespace BioMetrixCore
                 lblStatus.BackColor = Color.FromArgb(255, 77, 77);
         }
 
-        public void load_employee_log_table ()
+        /*public void load_employee_log_table ()
         {
             string connection = "datasource=localhost; database=biometrics; port=3306; username=root; password=";
             MySqlConnection mycon = new MySqlConnection(connection);
@@ -73,9 +124,9 @@ namespace BioMetrixCore
             {
                 MessageBox.Show(ex.Message);
             }
-        }
+        }*/
 
-        public void load_temp_table ()
+        /*public void load_temp_table ()
         {
             string connection = "datasource=localhost; database=biometrics; port=3306; username=root; password=";
             MySqlConnection mycon = new MySqlConnection(connection);
@@ -104,13 +155,13 @@ namespace BioMetrixCore
             {
                 MessageBox.Show(ex.Message);
             }
-        }
+        }*/
 
         public void load_sync_table ()
         {
             string connection = "datasource=localhost; database=biometrics; port=3306; username=root; password=";
             MySqlConnection mycon = new MySqlConnection(connection);
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM sync_view;", mycon);
+            MySqlCommand cmd = new MySqlCommand("SELECT * FROM sync_table_view;", mycon);
             ShowStatusBar(string.Empty, true);
 
             try
@@ -126,7 +177,7 @@ namespace BioMetrixCore
                 source.DataSource = table;
                 dataGridView1.DataSource = source;
                 adap.Update(table);
-                BindToGridView();
+                BindToGridView1();
                 ShowStatusBar(dataGridView1.RowCount - 1 + " record/s found !!", true);
                 mycon.Close();
             }
@@ -164,15 +215,14 @@ namespace BioMetrixCore
 
         private void DB_Viewer_Load ( object sender, EventArgs e )
         {
-            //load_employee_log_table();
             load_sync_table();
         }
         
-        private void dataGridView1_CellClick ( object sender, DataGridViewCellEventArgs e )
+        private void dataGridView1_CellDoubleClick ( object sender, DataGridViewCellEventArgs e )
         {
-            frm_records frecords = new frm_records();
-            frecords.getFilteredDataFromSyncedTable();
-            frecords.Show();
+            DateTime dateTime = master.returnLastLog();
+            GetSyncData(dateTime);
         }
+
     }
 }

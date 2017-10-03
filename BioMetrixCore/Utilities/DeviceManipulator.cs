@@ -127,6 +127,45 @@ namespace BioMetrixCore
             return lstEnrollData;
         }
 
+        public ICollection<MachineInfo> GetSyncedData ( ZkemClient objZkeeper, int machineNumber, DateTime dt )
+        {
+            string dwEnrollNumber1 = "";
+            int dwVerifyMode = 0;
+            int dwInOutMode = 0;
+            int dwYear = 0;
+            int dwMonth = 0;
+            int dwDay = 0;
+            int dwHour = 0;
+            int dwMinute = 0;
+            int dwSecond = 0;
+            int dwWorkCode = 0;
+
+            ICollection<MachineInfo> lstEnrollData = new List<MachineInfo>();
+
+            objZkeeper.ReadAllGLogData(machineNumber);
+
+            while (objZkeeper.SSR_GetGeneralLogData(machineNumber, out dwEnrollNumber1, out dwVerifyMode, out dwInOutMode, out dwYear, out dwMonth, out dwDay, out dwHour, out dwMinute, out dwSecond, ref dwWorkCode))
+            {
+                string inputDate = new DateTime(dwYear, dwMonth, dwDay, dwHour, dwMinute, dwSecond).ToString();
+
+                DateTime date = new DateTime(dwYear, dwMonth, dwDay, dwHour, dwMinute, dwSecond);
+                DateTime dateCompare = new DateTime(dt.Year, dt.Month, dt.Day, dt.Hour, dt.Minute, dt.Second);
+
+                MachineInfo objInfo = new MachineInfo();
+                //objInfo.MachineNumber = machineNumber;
+                objInfo.EmployeeID = int.Parse(dwEnrollNumber1);
+                objInfo.DateTimeRecord = inputDate;
+                objInfo.InOut = dwInOutMode + "";
+
+                if (( dateCompare <= date ))
+                {
+                    lstEnrollData.Add(objInfo);
+                }
+            }
+
+            return lstEnrollData;
+        }
+
         // Search
         public ICollection<MachineInfo> GetSearchData ( ZkemClient objZkeeper, int machineNumber, DateTime from, DateTime to )
         {
@@ -149,14 +188,13 @@ namespace BioMetrixCore
             {
                 string inputDate = new DateTime(dwYear, dwMonth, dwDay, dwHour, dwMinute, dwSecond).ToString();
 
-               // String.Format("{0:MM/dd/yyyy}", dt);
+                // String.Format("{0:MM/dd/yyyy}", dt);
 
                 DateTime date = new DateTime(dwYear, dwMonth, dwDay);
-                DateTime dateTo = new DateTime(to.Year, to.Month, to.Day);
                 DateTime dateFrom = new DateTime(from.Year, from.Month, from.Day);
-                
+                DateTime dateTo = new DateTime(to.Year, to.Month, to.Day);
+
                 MachineInfo objInfo = new MachineInfo();
-                //objInfo.MachineNumber = machineNumber;
                 objInfo.EmployeeID = int.Parse(dwEnrollNumber1);
                 objInfo.DateTimeRecord = inputDate;
                 objInfo.InOut = dwInOutMode + "";

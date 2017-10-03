@@ -170,9 +170,6 @@ namespace BioMetrixCore
 
                 else
                     DisplayListOutput("No record/s found");
-
-                
-         
             }
 
             catch (Exception ex)
@@ -189,14 +186,14 @@ namespace BioMetrixCore
              
                 ICollection<MachineInfo> lstMachineInfo_all = manipulator.GetFilteredData(objZkeeper, int.Parse(tbxMachineNumber.Text.Trim()), time);
                 ICollection<MachineInfo> lstMachineInfo_employee = new List<MachineInfo>();
-                ICollection<MachineInfo> lstMachineInfo_last_in = new List<MachineInfo>();
-                ICollection<MachineInfo> lstMachineInfo_last_out = new List<MachineInfo>();
+
                 if (lstMachineInfo_all != null && lstMachineInfo_all.Count > 0)
                 {
                     foreach (var i in lstMachineInfo_all)
                     {
                         lstMachineInfo_employee.Add(i);
                     }
+
                     BindToGridView(lstMachineInfo_all);
                     ShowStatusBar(lstMachineInfo_all.Count + " record/s found !!", true);
                     return lstMachineInfo_all;
@@ -330,6 +327,7 @@ namespace BioMetrixCore
 
                 string ipAddress = tbxDeviceIP.Text.Trim();
                 string port = tbxPort.Text.Trim();
+                MessageBox.Show(ipAddress + "   " + port);
                 if (ipAddress == string.Empty || port == string.Empty)
                     throw new Exception("The Device IP Address and Port is mandatory !!");
 
@@ -630,13 +628,25 @@ namespace BioMetrixCore
 
         /*public void timerAuto ()
         {
-            Timer _tmr = new Timer();
+            DateTime dt = DateTime.Now;
+
+            String.Format(dt.ToLongTimeString());
+
+            if (dt.ToLongTimeString() == "3:37:00 PM")
+            {
+                MessageBox.Show("Success!");
+            }
+
+            //MessageBox.Show("The time is: " + dt.ToLongTimeString());
+
+            /*Timer _tmr = new Timer();
 
             _tmr.Interval = 10000;  // interval in millisecond
 
             _tmr.Tick += new EventHandler(tmrReload_Tick);
 
             _tmr.Start();
+
         }*/
 
         private void Master_Load ( object sender, EventArgs e )
@@ -652,7 +662,6 @@ namespace BioMetrixCore
             ToolTip1.SetToolTip(this.btnRestart, "Restart the device");
             ToolTip1.SetToolTip(this.btnOff, "Power off the device");
             ToolTip1.SetToolTip(this.btnPingDevice, "Ping the device");
-
         }
 
         private void picbtnGetAllLog_Click ( object sender, EventArgs e )
@@ -876,34 +885,40 @@ namespace BioMetrixCore
         {
             getTodayRec();
 
-            try
-            {
-                string constring = "datasource=localhost; database=biometrics; port=3306; username=root; password=";
+            var resultDia1 = DialogResult.None;
+            resultDia1 = MessageBox.Show("Do you really want to sync??", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                using (MySqlConnection con = new MySqlConnection(constring))
+            if (resultDia1 == DialogResult.Yes)
+            {
+                try
                 {
-                    using (MySqlCommand cmd = new MySqlCommand("INSERT INTO sync_tbl(date_and_time_synced) VALUES(now())", con))
-                    {
-                        con.Open();
-                        cmd.ExecuteNonQuery();
-                        con.Close();
-                    }
+                    string constring = "datasource=localhost; database=biometrics; port=3306; username=root; password=";
 
-                    var resultDia = DialogResult.None;
-                    resultDia = MessageBox.Show("Successfully synced!\nDo you want to show it ??", "Show Sync Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                    if (resultDia == DialogResult.Yes)
+                    using (MySqlConnection con = new MySqlConnection(constring))
                     {
-                        Log_Viewer dbviewer = new Log_Viewer();
-                        dbviewer.Show();
+                        using (MySqlCommand cmd = new MySqlCommand("INSERT INTO sync_table(last_synced, latest_synced) SELECT latest_synced, NOW() FROM sync_table ORDER BY sync_id DESC LIMIT 1", con))
+                        {
+                            con.Open();
+                            cmd.ExecuteNonQuery();
+                            con.Close();
+                        }
+
+                        var resultDia2 = DialogResult.None;
+                        resultDia2 = MessageBox.Show("Successfully synced!\nDo you want to show it ??", "Show Sync Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                        if (resultDia2 == DialogResult.Yes)
+                        {
+                            Log_Viewer dbviewer = new Log_Viewer();
+                            dbviewer.Show();
+                        }
+                        //MessageBox.Show("Records inserted.");
                     }
-                    //MessageBox.Show("Records inserted.");
                 }
-            }
 
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error " + ex.Message);
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error " + ex.Message);
+                }
             }
         }
 
@@ -977,7 +992,7 @@ namespace BioMetrixCore
             string myConnection = "datasource=localhost; database=biometrics; port=3306; username=root; password=";
             MySqlConnection myConn = new MySqlConnection(myConnection);
             MySqlCommand command = myConn.CreateCommand();
-            command.CommandText = "SELECT date_and_time_synced FROM sync_tbl ORDER BY sync_id DESC LIMIT 1;";
+            command.CommandText = "SELECT latest_synced FROM sync_table ORDER BY sync_id DESC LIMIT 1;";
             MySqlDataReader myReader;
 
             DateTime dateTime = DateTime.Now;
@@ -1009,7 +1024,7 @@ namespace BioMetrixCore
             string myConnection = "datasource=localhost; database=biometrics; port=3306; username=root; password=";
             MySqlConnection myConn = new MySqlConnection(myConnection);
             MySqlCommand command = myConn.CreateCommand();
-            command.CommandText = "SELECT date_and_time_synced FROM sync_tbl ORDER BY sync_id DESC LIMIT 1;";
+            command.CommandText = "SELECT latest_synced FROM sync_table ORDER BY sync_id DESC LIMIT 1;";
             MySqlDataReader myReader;
 
             try
@@ -1040,6 +1055,7 @@ namespace BioMetrixCore
         private void btnCountRecords_Click ( object sender, EventArgs e )
         {
             DateTime dateTime = returnLastLog();
+            //MessageBox.Show(dateTime+"");
             getFilteredData(dateTime);
         }
 
