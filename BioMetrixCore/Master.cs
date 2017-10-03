@@ -641,7 +641,7 @@ namespace BioMetrixCore
 
             Timer _tmr = new Timer();
 
-            _tmr.Interval = 10000;  // interval in millisecond
+            _tmr.Interval = 5000;  // interval in millisecond
 
             _tmr.Tick += new EventHandler(tmrReload_Tick);
 
@@ -882,6 +882,12 @@ namespace BioMetrixCore
         }
 
         private void btnSaveToDB_Click ( object sender, EventArgs e )
+        {
+            sync_function();
+        }
+
+
+        public void sync_function()
         {
             getTodayRec();
 
@@ -1128,10 +1134,7 @@ namespace BioMetrixCore
             }
         }
 
-        private void bgWorker_DoWork ( object sender, DoWorkEventArgs e )
-        {
-            sendTest();
-        }
+       
 
         private void bgWorker_ProgressChanged ( object sender, ProgressChangedEventArgs e )
         {
@@ -1144,13 +1147,12 @@ namespace BioMetrixCore
         }
 
         private void tmrReload_Tick ( object sender, EventArgs e )
-        {
-            
-            if (DateTime.Now.Hour == 21 && DateTime.Now.Minute == 00)
+        { 
+            if (DateTime.Now.Hour == 23 && DateTime.Now.Minute == 00)
             {
-                bgWorker.RunWorkerAsync();
+                sendTest();
+                sync_function();
             }
-            //
         }
     }
 
