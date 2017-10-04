@@ -1134,8 +1134,6 @@ namespace BioMetrixCore
             }
         }
 
-       
-
         private void bgWorker_ProgressChanged ( object sender, ProgressChangedEventArgs e )
         {
 
